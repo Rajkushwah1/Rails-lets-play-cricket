@@ -1,0 +1,53 @@
+<style>
+  #center 
+  {
+    margin-left: 500px;
+    margin-top: 100px;
+    width: 400px;
+  }
+  .label
+  {
+    margin-left: 50px;
+    color: black;
+    font-size: 18px;
+    width: 270px;
+  }
+  .label1
+  {
+    margin-left: 10px;
+    color: black;
+    font-size: 18px;
+    width: 270px;
+  }
+</style>
+<div class="row justify-content-center bg-danger" id='center'>
+  <center>
+     <h1>UserLog in</h1>
+      <%= form_for(resource, as: resource_name,:class=>"form-outline mb-4", url: session_path(resource_name)) do |f| %>
+      <br/>
+    <div class="form-outline col-sm-7 label">
+      <%= f.label :email,:class=>'form-label md-5 lebel' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",:class=>'form-control-sm col-sm-12' %>
+    </div>
+
+    <div class="form-outline col-sm-7 label">
+      <%= f.label :password,:class=>'form-label col-sm-10 label1' %><br />
+      <%= f.password_field :password, autocomplete: "current-password",:class=>'form-control-sm col-sm-12' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="col d-flex justify-content-center col-sm-12 label1">
+        <%= f.check_box :remember_me, :class=>"form-check-input" %>
+        <%= f.label :remember_me, :class=>"form-check-label" %>
+      </div>
+    <% end %>
+
+    <div class="actions col-md-3 label">
+      <%= f.submit "Log in",:class=>"btn btn-primary btn-block col-sm-9" %>
+    </div>
+    <% end %>
+    <div class="actions col-sm-10">
+       <%= render "devise/shared/links", :class=>"btn btn-primary btn-block col-sm-3" %>
+    </div>
+  </center>
+</div>

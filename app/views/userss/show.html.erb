@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>
+  .a 
+  {
+    margin-top: 13px;
+    margin-left: 100px;
+  }
+  .b 
+  {
+    margin-top: 13px;
+    margin-left: 300px;
+  }
+  .c
+  {
+    margin-top: 13px;
+    margin-left: 300px;
+  }
+  .flash
+  {
+    width: 260px;
+    height: 320px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .raj 
+  {
+    margin-left: 800px;
+    margin-top: -50px;
+  }
+  .raj1 
+  {
+    margin-left: 650px;
+    margin-top:  -90px;
+  }
+</style>
+<body>
+    <div class="container">    
+                <div class="jumbotron">
+                  <div class="row">
+                      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                         <% if @user.image.attached? %>
+                              <%= image_tag @user.image, :class=>'flash' %>
+                         <% else %>
+                              <%= image_tag "default.png", :class=>'flash' %>
+                          <% end %>
+                      </div>
+                      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                          <div class="container" style="border-bottom:1px solid black">
+                            <h2><%= @user.name %>
+                                <%= @contest %>
+                            </h2>
+                          </div>
+                            <hr>
+                          <ul class="container details">
+
+                            <li>
+                              <p>Age:-<%= @user.age %>
+                              </p>
+                            </li>
+
+                            <li>
+                              <p>Gender:-<%= @user.gender %>
+                              </p>
+                            </li>
+
+                            <li>
+                              <p>Mobile_no:-<%= @user.mobile_no %>
+                              </p>
+                            </li>
+
+                            <li>
+                              <p>Email:-<%= @user.email %>
+                              </p>
+                            </li>
+                            <!-- <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="#">www.example.com</p></a> -->
+                          </ul>                          
+                      </div>
+
+                  </div>
+
+  <%= link_to("Logout", destroy_user_session_path, :class=>"btn btn-danger a")%>
+  <%= link_to("Update_Profile", edit_userss_path(@user),:class=>"btn btn-primary b")%>
+  <%=button_to "Delete Account",userss_path(@user.id), :method => :delete, :class => "delete", :confirm => "Are you sure ?",:class=>"btn btn-primary raj" %>    
+  <%= link_to("BACK", matchess_index_path,:class=>"btn btn-warning raj1")%>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+
+<style>
+	div 
+	{
+		margin-top: 100px;
+		margin-left: 450px;
+	}
+</style>
+<div class="display-1 col-sm-4 bg-warning">
+	<center>
+		  <h1>Update Your Profie <%= @user.name %></h1>
+
+         <%= form_with(model: @user, url: userss_path) do |n| %>
+           <%= n.label :name, "Enter Update Name", :class=>"text text-dark" %>
+           <%= n.text_field :name, autofocus:true, :class=>"form-control form-control-sm" %></br>
+
+           <%= n.label :age, "Enter Update Age" %>
+           <%= n.text_field :age, autofocus:true, :class=>"form-control form-control-sm" %></br>
+
+           <%= n.label :gender, "Enter Update Gender" %>
+           <%= n.text_field :gender, autofocus:true, :class=>"form-control form-control-sm"%></br>
+
+           <%= n.label :mobile_no, "Enter Update Mobile_no" %>
+           <%= n.text_field :mobile_no,autofocus:true, :class=>"form-control form-control-sm"%></br>
+
+           <%= n.file_field :image,placeholder: 'Upload picture',direct_upload: true %>
+       </br>
+
+         <%= n.submit "Update Profile" %>
+         <%= link_to "Back", userss_path(@user.id),:class=>"btn btn-danger" %>
+         <% end %>
+    </center>
+</div>

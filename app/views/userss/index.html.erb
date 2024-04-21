@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>this is welcome page</title>
+	<style type="text/css">
+		img 
+		{
+			margin-left: 450px;
+			height: 250px;
+		}
+		button
+		{
+			margin-left: 650px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body class="bg-danger">
+    <div class="container">
+       <div class="jumbotron bg-danger">
+         <h1>Lets Play Cricket</h1>      
+         <p>Lets Play Cricket is an Indian fantasy sports platform that allows users to play fantasy cricket. In April 2022, Lets Play Cricket became the first Indian gaming company to become a unicorn soon.</p>
+       </div>
+    </div>
+    <div>
+       <img src="/assets/cricket.gif" class="img-rounded" alt="Cinque Terre">
+    </div>
+     <button><%= link_to 'Login', new_user_session_path, :class => "btn" %></button>
+     <button><%= link_to 'Singup',  new_user_registration_path, :class => "btn" %></button>
+</body>
+</html>

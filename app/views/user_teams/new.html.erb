@@ -1,0 +1,52 @@
+<style>
+  ul 
+  {
+    list-style-type: none;
+  }
+  div
+  {
+    margin-left: 300px;
+  }
+  
+</style>
+<table class="table table-striped table-hover">
+  <thead>
+    <% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+    <%= form_for(@user_contest1, url: contest_user_teams_path) do |form| %>
+      <% @user_contest.match.teams.each do |f| %>
+        <h1><b><%= f.teamname %></b></h1>
+        <table class="table table-hover">
+         <thead>
+          <tr>
+            <th scope="col">Player Name</th>
+            <th scope="col">Player Type</th>
+          </tr>
+          </thead>
+        <table>
+          <% f.players.each do |player| %>
+           <%= fields_for "player_ids[]", player do |pf| %>
+            <table class="table table-striped table-hover table-border">
+              <tr>
+              <td></td>
+              <td><%= player.player_name %>                </td>
+              <td><%= pf.check_box "player_name" %></td>
+              <td><div><%= player.player_type %>   <div></td>
+            </tr>
+            </table>
+        <% end %>
+    <% end %>
+    <% end %>
+          <% if current_user.user_teams.first == nil %>
+            <%= form.submit "Create Team",:class=>"btn btn-success" %></td>
+          <% else %>
+            <p>you alredy created team </p>
+            <%= link_to "See Your team", user_teams_path %>
+          <% end %>
+          <%= link_to "Back TO Contest", user_team_path(@user_contest),:class=>"btn btn-danger" %> 
+    <% end %>
+</body>
+</html>

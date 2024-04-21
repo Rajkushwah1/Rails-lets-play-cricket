@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body  
+    {
+      background-color: black;
+    }
+    .li 
+    {
+      font-size: 25px;
+      color: white;
+       margin-left: 550px;
+    }
+
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="li">CONTEST</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to("Logout", destroy_user_session_path, :class=>"btn btn-warning")%></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+     <% @contests.each do |f| %>
+        <ul style="list-style: none;">
+          <li class="container-fluid bg-primary">
+            <%= f.contest_name %>
+            <%= link_to "Entry",user_team_path(f),:class=>"btn btn-success" %>
+           
+          </li>  
+     </ul>
+     <% end %>
+   </center>
+  </div>
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="li">Create Team</li><br/>
+        <li><%= link_to "Create Team",new_matchess_path,:class=>"btn btn-success" %></li>
+      </ul>
+        <li><%= link_to "Back",matchess_index_path,:class=>"btn btn-success" %>
+</li>
+
+</body>
+</html>
